@@ -4,7 +4,7 @@ import Board from './components/Board'
 function App() {
 
   return (
-    <main>
+    <main className="game">
       <h1>Tic Tac Toe</h1>
     </main>
   )
