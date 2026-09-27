@@ -10,7 +10,7 @@ export const initialState = {
 export function gameReducer(state, action) {
     switch (action.type) {
         case 'MAKE_MOVE': {
-            const { index } = action.payload
+            const index = action.payload
             if (state.board[index] || state.winner|| state.isDraw) {
                 return state
             }
