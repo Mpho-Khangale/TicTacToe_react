@@ -35,6 +35,22 @@ export function gameReducer(state, action) {
             return initialState
         }
 
+        case 'JUMP_TO': {
+            const moveIndex = action.payload
+            const selectedBoard = state.history[moveIndex]
+            const winner = calculateWinner(selectedBoard)
+            const isDraw = !winner && selectedBoard.every((square) => square !== null)
+
+            return {
+                ...state,
+                board: selectedBoard,
+                currentPlayer: moveIndex % 2 === 0 ? 'X' : 'O',
+                winner,
+                isDraw,
+                history: state.history.slice(0, moveIndex + 1),
+            }
+        }
+
         default:
             return state
     }
