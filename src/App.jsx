@@ -1,4 +1,4 @@
-import{ useState } from 'react'
+import{ useReducer  } from 'react'
 import './App.css'
 import Board from './components/Board'
 import GameStatus from './components/GameStatus'
