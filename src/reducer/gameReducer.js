@@ -5,6 +5,7 @@ export const initialState = {
   currentPlayer: 'X',
   winner: null,
   isDraw: false,
+  history: [Array(9).fill(null)],
 }
 
 export function gameReducer(state, action) {
@@ -26,6 +27,7 @@ export function gameReducer(state, action) {
                 currentPlayer: state.currentPlayer === 'X' ? 'O' : 'X',
                 winner,
                 isDraw,
+                history: [...state.history, newBoard],
             }
         }
 
