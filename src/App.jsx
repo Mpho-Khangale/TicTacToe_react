@@ -8,14 +8,14 @@ function App() {
   const [state, dispatch] = useReducer(gameReducer, initialState)
 
   function handleSquareClick(index) {
-    dispatch({ type: 'MAKE_MOVE', payload: { index } })
+    dispatch({ type: 'MAKE_MOVE', payload: index })
   }
 
   return (
     <main className="game">
       <h1>Tic Tac Toe</h1>
       <GameStatus winner={state.winner} isDraw={state.isDraw} currentPlayer={state.currentPlayer} />
-      <Board board={board} onSquareClick={handleSquareClick} />
+      <Board board={state.board} onSquareClick={handleSquareClick} />
     </main>
   )
 }
