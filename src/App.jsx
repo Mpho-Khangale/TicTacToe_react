@@ -2,7 +2,6 @@ import{ useState } from 'react'
 import './App.css'
 import Board from './components/Board'
 import GameStatus from './components/GameStatus'
-import { calculateWinner } from './utility/calculateWinner'
 import { gameReducer, initialState } from './reducer/gameReducer'
 
 function App() {
