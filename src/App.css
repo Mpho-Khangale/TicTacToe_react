@@ -41,3 +41,14 @@ body {
 .square:hover {
   background: #e8e8e8;
 }
+
+.status {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+}
+
+.square:disabled {
+  cursor: not-allowed;
+  color: #333;
+}
