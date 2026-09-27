@@ -4,21 +4,34 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+button {
+  font-family: inherit;
 }
 
 .game {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 40px 20px;
 }
 
 .game h1 {
-  margin-bottom: 30px;
+  margin: 0 0 15px;
+  font-size: 2.5rem;
 }
+
+.status {
+  margin: 0 0 25px;
+  font-size: 1.3rem;
+}
+
+/* Tic Tac Toe board */
 
 .board {
   display: grid;
@@ -31,24 +44,96 @@ body {
   width: 100px;
   height: 100px;
   border: 2px solid #333;
-  border-radius: 8px;
+  border-radius: 10px;
   background: white;
   font-size: 2.5rem;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
 }
 
-.square:hover {
-  background: #e8e8e8;
-}
-
-.status {
-  margin-top: 0;
-  margin-bottom: 25px;
-  font-size: 1.3rem;
+.square:hover:not(:disabled) {
+  background: #e4e8ed;
+  transform: scale(1.03);
 }
 
 .square:disabled {
-  cursor: not-allowed;
-  color: #333;
+  cursor: default;
+  color: #222;
+}
+
+/* Reset button */
+
+.reset-button {
+  margin-top: 25px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background: #444;
+}
+
+/* Move history */
+
+.move-history {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.move-history h2 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.history-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 500px;
+}
+
+.history-buttons button {
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.history-buttons button:hover {
+  background: #e4e8ed;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .game {
+    padding: 25px 15px;
+  }
+
+  .game h1 {
+    font-size: 2rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  .history-buttons {
+    max-width: 300px;
+  }
 }
