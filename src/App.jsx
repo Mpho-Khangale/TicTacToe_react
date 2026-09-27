@@ -6,6 +6,7 @@ function App() {
   return (
     <main className="game">
       <h1>Tic Tac Toe</h1>
+      <Board />
     </main>
   )
 }
